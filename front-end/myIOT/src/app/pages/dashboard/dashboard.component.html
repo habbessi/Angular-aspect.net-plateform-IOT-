@@ -1,0 +1,90 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">User Register</h3>
+            </div>
+
+          </div>
+        </div>
+        <div class="card-body">
+          <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+            <h6 class="heading-small text-muted mb-4">User information</h6>
+            <input type="hidden" name="userDetailsID" value="service.formData.userDetailsID">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group ">
+                  <label class="form-control-label" for="input-first-name">First name</label>
+                  <input type="text" id="input-first-name" class="form-control is-valid" placeholder="First name"
+                    name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName" required
+                    [class.invalid]="firstName.invalid && firstName.touched">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-last-name">Last name</label>
+                  <input type="text" id="input-last-name" class="form-control  is-valid" placeholder="Last name"
+                    name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" required
+                    [class.invalid]="lastName.invalid && lastName
+                    .touched">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-first-name">Phone Number</label>
+                  <input type="text" id="input-first-name" class="form-control is-valid" placeholder="Phone Number"
+                    name="phoneNumber" #phoneNum="ngModel" [(ngModel)]="service.formData.phoneNum" required
+                    maxlength="8" minlength="8" [class.invalid]="phoneNum.invalid && phoneNum.touched">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-last-name">Birthday</label>
+                  <input type="text" id="input-last-name" class="form-control is-valid" placeholder="jj/mm/aaaa"
+                    name="birthday" #birthday="ngModel" [(ngModel)]="service.formData.birthday" required maxlength="10"
+                    minlength="10" [class.invalid]="birthday.invalid && birthday.touched">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-first-name">Code</label>
+                  <input type="text" id="input-first-name" class="form-control is-valid" placeholder="Code" name="cin"
+                    #cin="ngModel" [(ngModel)]="service.formData.cin" required maxlength="3" minlength="3"
+                    [class.invalid]="cin.invalid && cin.touched">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-email">Email address</label>
+                  <input type="email" id="input-email" class="form-control is-valid" placeholder="houssem@example.com"
+                    name="email" #email="ngModel" [(ngModel)]="service.formData.email" required
+                    [class.invalid]="firstName.invalid && firstName.touched">
+                </div>
+              </div>
+              <button class=" col-lg-3 btn btn-primary" type="submit" [disabled]="form.invalid"><i
+                  class="ni ni-send"></i> Submit</button>
+            </div>
+
+
+          </form>
+          <br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

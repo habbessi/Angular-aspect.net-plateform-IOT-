@@ -1,0 +1,146 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Zone Register</h3>
+            </div>
+
+          </div>
+        </div>
+        <div class="card-body">
+          <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+            <h6 class="heading-small text-muted mb-4">Zone information</h6>
+            <input type="hidden" name="ZoneDetailsID" value="service.formData.zoneDetailsID">
+            <div class="row">
+
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-latitude">site</label>
+                  <input type="text" id="input-sitID" class="form-control  is-valid" placeholder="Designation"
+                    name="siteID" #siteID="ngModel" [(ngModel)]="service.formData.siteID" required
+                    [class.invalid]="siteID.invalid && siteID.touched">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-latitude">Designation</label>
+                  <input type="text" id="input-latitude" class="form-control  is-valid" placeholder="Designation"
+                    name="designation" #designation="ngModel" [(ngModel)]="service.formData.designation" required
+                    [class.invalid]="designation.invalid && designation.touched">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea rows="4" class="form-control is-valid" placeholder="Write your description..."
+                    name="description" #description="ngModel" [(ngModel)]="service.formData.description" required
+                    [class.invalid]="description.invalid && description.touched"></textarea>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-TypeAgri">Types de cultures</label>
+                  <input type="text" id="input-TypeAgri" class="form-control  is-valid" placeholder="write your type"
+                    name="TypeAgri" #typeAgri="ngModel" [(ngModel)]="service.formData.typeAgri" required
+                    [class.invalid]="typeAgri.invalid && typeAgri.touched">
+                </div>
+              </div>
+            </div>
+            <button class=" col-lg-3 btn btn-primary" type="submit" [disabled]="form.invalid"><i class="ni ni-send"></i>
+              Submit</button>
+            <br><br>
+            <div class="row">
+              <div class="col">
+                <div class="card shadow">
+                  <div class="card-header border-0">
+                    <h3 class="mb-0">Zone tables</h3>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Site</th>
+                          <th scope="col">Designation</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Types de cultures</th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let pd of service.list">
+                          <td>
+                            {{pd.zoneDetailsID}}
+                          </td>
+                          <td>
+                            {{pd.siteID}}
+                          </td>
+                          <td>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm">{{pd.designation}}</span>
+                            </div>
+                          </td>
+                          <td>
+                            {{pd.description}}
+                          </td>
+                          <td>
+                            <span class="badge badge-dot mr-4">
+                              <i class="bg-warning"></i> {{pd.typeAgri}}
+                            </span>
+                          </td>
+                          <td (click)="populateForm(pd)">
+                            <i class="btn btn-outline-info ni ni-circle-08"></i>
+                          </td>
+                          <td (click)="onDelete(pd.zoneDetailsID)">
+                            <i class="btn btn-outline-danger ni ni-fat-remove"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="card-footer py-4">
+                    <nav aria-label="...">
+                      <ul class="pagination justify-content-end mb-0">
+                        <li class="page-item disabled">
+                          <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                            <i class="fas fa-angle-left"></i>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                        </li>
+                        <li class="page-item active">
+                          <a class="page-link" href="javascript:void(0)">1</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="javascript:void(0)">
+                            <i class="fas fa-angle-right"></i>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
