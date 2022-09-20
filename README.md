@@ -6,7 +6,7 @@ Creating a web application for internet of things in saas mode to manage a farm 
 - C#
 - Sqlserver(database)
 
-## front-end technologies:
+## front-end technologie:
 - Angular11
 
 
